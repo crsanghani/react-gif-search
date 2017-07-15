@@ -3,9 +3,9 @@ import GifItem from 'GifItem';
 
 // takes the gifs obj from index and maps the ids in to the component
 
-export default const GifList = (props) => {
+const GifList = (props) => {
   const gifItems = props.gifs.map((image) => {
-    return <GifItem key=(image.id) gif={image} />
+    return <GifItem key={image.id} gif={image} />
     console.log(gifItems);
   });
 
@@ -14,6 +14,8 @@ export default const GifList = (props) => {
     <ul>{gifItems}</ul>
   );
 };
+
+export default GifList;
 
 // this is a functional stateless component
 

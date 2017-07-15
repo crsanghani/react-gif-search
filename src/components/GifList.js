@@ -1,12 +1,11 @@
 import React from 'react';
-import GifItem from 'GifItem';
+import GifItem from './GifItem';
 
 // takes the gifs obj from index and maps the ids in to the component
 
 const GifList = (props) => {
   const gifItems = props.gifs.map((image) => {
     return <GifItem key={image.id} gif={image} />
-    console.log(gifItems);
   });
 
 // displays the variable that is created by the list container

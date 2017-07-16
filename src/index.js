@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import GifList from './components/GifList';
+import GifModal from './components/GifModal';
 import Searchbar from './components/Searchbar';
 import request from 'superagent';
 
@@ -13,9 +14,27 @@ class App extends React.Component {
     super();
     // default state set within the constructor
     this.state = {
-      gifs: []
-    }
+      gifs: [],
+      selectedGif: null,
+      modalIsOpen: false
+    };
 
+  }
+
+  // modal is opened when user clicks on gif
+  openModal(gif) {
+    this.setState({
+      selectedGif: gif,
+      modalIsOpen: true
+    });
+  }
+
+  // modal is closed when user clicks on closed
+  closeModal() {
+    this.setState({
+      selectedGif: null,
+      modalIsOpen: false
+    });
   }
 
   // term change handles the input change from Searchbar state
@@ -34,7 +53,11 @@ class App extends React.Component {
     return (
       <div>
         <Searchbar onTermChange={term => this.handleTermChange(term)} />
-        <GifList gifs={this.state.gifs} />
+        <GifList  gifs={this.state.gifs}
+                  onGifSelect={ selectedGif => this.openModal(selectedGif) } />
+        <GifModal modalIsOpen={this.state.modalIsOpen}
+                  selectedGif={this.state.selectedGif}
+                  onRequestClose={ () => this.closeModal() } />
       </div>
     );
   }

@@ -5,12 +5,12 @@ const GifModal = (props) => {
   if (!props.selectedGif) {
     return <div></div>;
   }
-  
+
   return (
     <Modal
       isOpen={ props.modalIsOpen }
       onRequestClose={ () => props.onRequestClose() }>
-      <div>
+      <div className='gif-modal'>
         <img src={ props.selectedGif.images.original.url } alt=''/>
         <p>
           <strong>

@@ -4,9 +4,12 @@ import React from 'react';
 
 const GifItem = (image) => {
   return (
-    <li>
-      <img src={image.gif.images.downsized.url} alt=''/>
-    </li>
+
+  // this is the code for individual gifs that are shown inside the gif-list container
+  <div className='gif-item'>
+    <img src={image.gif.images.downsized.url} alt=''/>
+  </div>
+
   )
 };
 

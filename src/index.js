@@ -4,6 +4,9 @@ import GifList from './components/GifList';
 import Searchbar from './components/Searchbar';
 import request from 'superagent';
 
+// imports the CSS file so that webpack knows to bundle it with the JS file
+import './styles/app.css';
+
 class App extends React.Component {
 
   constructor() {

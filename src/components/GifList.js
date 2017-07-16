@@ -10,7 +10,7 @@ const GifList = (props) => {
 
 // displays the variable that is created by the list container
   return (
-    <ul>{gifItems}</ul>
+    <div className='gif-list'>{gifItems}</div>
   );
 };
 

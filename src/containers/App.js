@@ -1,16 +1,21 @@
 import React from 'react';
-import GifsTemp from '../components/GifsTemp';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as Actions from '../actions';
+import Searchbar from '../components/Searchbar';
+import '../styles/app.css';
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <GifsTemp gifs={ this.props.gifs } />
+        <Searchbar onTermChange={this.props.actions.requestGifs} />
       </div>
     );
   }
 }
+
+// mapStateToProps passes data from the container to the store
 
 function mapStateToProps(state) {
   return {
@@ -18,4 +23,12 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(App);
+// mapDispatchToProps passes data to the container from the store
+// it makes the result of reducers available to the container
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(Actions, dispatch)
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);

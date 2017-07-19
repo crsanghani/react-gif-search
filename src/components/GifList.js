@@ -4,7 +4,7 @@ import GifItem from './GifItem';
 // takes the gifs obj from index and maps the ids in to the component
 
 const GifList = (props) => {
-  const gifItems = props.gifs.map((image) => {
+  const gifItems = props.gifs.map(image => {
     return <GifItem key={image.id}
                     gif={image}
                     onGifSelect={props.onGifSelect} />

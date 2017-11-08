@@ -7,6 +7,7 @@ import configureStore from './store/configureStore';
 // create store
 const store = configureStore();
 
+// ReactDOM.render() hooks in to the div element in index.html and renders the entire app in that
 ReactDOM.render(
   <Provider store={store}>
     <App />

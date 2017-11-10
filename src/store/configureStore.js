@@ -14,7 +14,7 @@ export default function configureStore(initialState) {
 
   if (module.hot) {
     // enable webpack hotmodule replacement for reducers
-
+    // this allows react to update components dynamically
     module.hot.accept('../reducers', () => {
       const nextRootReducer = require('../reducers').default;
       store.replaceReducer(nextRootReducer);
